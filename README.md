@@ -1,2 +1,3 @@
-# littleShellScripts
-Some little very useful shell scripts
+#Little Shell Scripts
+
+Some little but very useful shell scripts.

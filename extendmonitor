@@ -1,0 +1,46 @@
+#!/bin/bash
+
+echo "NEEDS FIXING"
+
+var1=$1
+dvi=$(xrandr | grep DVI | cut -d " " -f1)
+
+main(){
+xrandr --output eDP1 --mode 1920x1080 
+check_args "${@}"
+monitor
+}
+
+monitor(){
+if [[ 3 -eq var1 ]]
+	then
+	xrandr --output VIRTUAL1 --off
+	xrandr --output HDMI1 --right-of eDP1
+	xrandr --output "$dvi" --auto
+	xrandr --output "$dvi" --left-of eDP1
+elif [[ 2 -eq var1 ]]
+	then
+		if [[ $dvi -ne "" ]]
+			then
+			xrandr --output "$dvi" --off
+		fi
+	xrandr --output HDMI1 --right-of eDP1
+else
+	echo "enter 2 or 3"
+fi
+}
+
+check_args() {
+if [ "$1" == "-h" ] || [ "$1" == "--help" ]
+	then
+        echo "enter 2 or 3"
+  	exit 2
+fi
+if [ "${#}" -ne "1" ]; then
+	echo "Expected 1 argument(s), got ${#}" >&2
+	echo "Enter 2 or 3"
+	exit 2
+fi
+}
+
+main "${@}"

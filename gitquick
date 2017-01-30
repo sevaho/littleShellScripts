@@ -1,0 +1,11 @@
+#! /bin/bash
+
+if [[ $1 = "" ]]; then
+  string="git quick push"
+else
+  string=$1
+fi
+
+git add .
+git commit -m "$string"
+git push origin master

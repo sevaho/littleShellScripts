@@ -15,9 +15,11 @@ packages(){
   #Terminal
   pacman -S --noconfirm vim zsh tmux termite
   #Programming
-  pacman -S --noconfirm docker npm python ansible vagrant php git tree nodejs ruby jre8-openjdk shellcheck js
+  pacman -S --noconfirm docker npm python ansible vagrant php git nodejs ruby shellcheck js jdk8-openjdk
+  #Python adds
+  pacman -S --noconfirm python-keyring python-requests python-pip
   #Apps
-  pacman -S --noconfirm tlp gtk3 evince geary w3m mpv htop youtube-dl mclocate scrot shotwell transmission-gtk ack wget curl lm_sensors gparted pcmanfm screenfetch hardinfo lsb-release galculator dconf-editor dconf dmidecode filezilla
+  pacman -S --noconfirm tlp gtk3 evince geary w3m mpv htop youtube-dl mclocate scrot shotwell transmission-gtk ack wget curl lm_sensors gparted pcmanfm screenfetch hardinfo lsb-release galculator dconf-editor dconf dmidecode filezilla tree
   #Network
   pacman -S --noconfirm networkmanager network-manager-applet nmap wireshark-gtk firewalld iftop
   #AUR managers
@@ -36,7 +38,7 @@ git(){
   git config --global user.email "sebastiaan.vanhoecke@hotmail.be"
 }
 aurPackages(){
-  yaourt -S google-chrome i3blocks packer spotify vivaldi
+  yaourt -S  --noconfirm google-chrome i3blocks packer spotify vivaldi blockify
 }
 firewalldSettings(){
   systemctl enable lightdm

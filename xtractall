@@ -3,13 +3,19 @@
 # Author: Sebastiaan Van Hoecke 
 
 main(){
-  listall=$(ls | grep -E '*.rar$|*.zip$|*.7z$|*.tar.xz$|*.tar$|*.tar.gz$')
-  echo "$listall"
-  for i in $listall; do
-	  echo "$i"
-	  dtrx "$i"
-	  rm -rf "$i"
-  done
+
+    listall=$(ls | grep -E '*.rar$|*.zip$|*.7z$|*.tar.xz$|*.tar$|*.tar.gz$')
+
+    echo "$listall"
+
+    for i in $listall; do
+
+        echo "$i"
+        dtrx "$i"
+        rm -rf "$i"
+
+    done
+
 }
 
 main "${@}"
